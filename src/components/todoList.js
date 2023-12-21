@@ -14,7 +14,7 @@ const TodoList = () => {
     const fetchTodos = async () => {
       try {
         console.log(user._id)
-        const response = await axios.get(`http://localhost:8081/todos/${user._id}`, {
+        const response = await axios.get(`https://todo-backend-nkpr.onrender.com//todos/${user._id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

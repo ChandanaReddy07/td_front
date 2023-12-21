@@ -24,7 +24,7 @@ const TaskCard = ({ todo,selectedTask }) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:8081/todo/${todo._id}/${user._id}`,
+        `https://todo-backend-nkpr.onrender.com//todo/${todo._id}/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ const TaskCard = ({ todo,selectedTask }) => {
   const handleEdit = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:8081/todo/${todo._id}/${user._id}`,
+        `https://todo-backend-nkpr.onrender.com//todo/${todo._id}/${user._id}`,
         {
           name: editedName,
           description: editedDescription,
