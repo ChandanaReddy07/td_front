@@ -1,0 +1,53 @@
+/* TodoForm.css */
+.todo-form {
+    margin-bottom: 20px;
+  }
+  
+  .input-container {
+    margin-bottom: 10px;
+  }
+  
+  .input-field {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .add-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  /* Styles for TaskCard */
+.todo-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .todo-card:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  
+  .todo-card p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
