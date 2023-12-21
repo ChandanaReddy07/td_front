@@ -9,7 +9,7 @@ function Signup({ onSignupSuccess, onClose }) {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://todo-backend-nkpr.onrender.com//signup", {
+      const response = await axios.post("https://todo-backend-nkpr.onrender.com/signup", {
         name,
         email,
         password,
