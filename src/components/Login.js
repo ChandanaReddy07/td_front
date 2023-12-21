@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Signup from "./Signup"; // Import the Signup component
 import { authenticate ,isAuthenticated} from "../helper/user";
+import "./style.css"
 
 // import { authenticate } from "../helper/user";
 
@@ -18,7 +19,7 @@ function Login({onClose}) {
     e.preventDefault();
   
     try {
-      const response = await fetch('https://todo-backend-nkpr.onrender.com//login', {
+      const response = await fetch('http://localhost:8081/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,7 +42,7 @@ function Login({onClose}) {
   
         onClose(); // Close the overlay after successful login
         
-        console.log(userData);
+        
       } else {
         // Handle error if the API request fails
         console.error('Login failed:', response.statusText);

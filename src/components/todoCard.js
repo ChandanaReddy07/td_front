@@ -24,7 +24,7 @@ const TaskCard = ({ todo,selectedTask }) => {
   const handleDelete = async () => {
     try {
       const response = await axios.delete(
-        `https://todo-backend-nkpr.onrender.com//todo/${todo._id}/${user._id}`,
+        `https://todo-backend-nkpr.onrender.com/todo/${todo._id}/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ const TaskCard = ({ todo,selectedTask }) => {
   const handleEdit = async () => {
     try {
       const response = await axios.put(
-        `https://todo-backend-nkpr.onrender.com//todo/${todo._id}/${user._id}`,
+        `https://todo-backend-nkpr.onrender.com/todo/${todo._id}/${user._id}`,
         {
           name: editedName,
           description: editedDescription,
@@ -94,13 +94,16 @@ const TaskCard = ({ todo,selectedTask }) => {
     <div className={`todo-card ${expanded ? 'expanded' : ''}`} onClick={toggleExpand}>
       {editMode ? (
         <div>
+          <p>Name:</p>
           <input
             type="text"
             value={editedName}
             onChange={handleNameChange}
             onClick={(e) => e.stopPropagation()} // Prevent toggle on input click
           />
-          <textarea
+          <p >Description:</p>
+          <input
+          type="text"
             value={editedDescription}
             onChange={handleDescriptionChange}
             onClick={(e) => e.stopPropagation()} // Prevent toggle on textarea click
@@ -111,13 +114,16 @@ const TaskCard = ({ todo,selectedTask }) => {
         </div>
       ) : (
         <div>
+          <div className='navbar'>
           <h3>{todo.name}</h3>
+          <p onClick={handleDelete} style={{color:"red",fontWeight:"bolder"}} >DELETE</p>
+          </div>
+
           {expanded && (
-            <div>
-              <p>{todo.description}</p>
+            <div >
+              <div style={{padding:"10px",display:"flex"}}><b>Description:</b> &nbsp;  {todo.description}</div>
               <div className="buttons">
                 <button onClick={toggleEditMode}>Edit</button>
-                <button onClick={handleDelete}>Delete</button>
               </div>
             </div>
           )}

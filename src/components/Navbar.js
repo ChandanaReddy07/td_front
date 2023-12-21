@@ -33,13 +33,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="containerN">
-      
-        <div className="menu-icon" onClick={handleShowNavbar}>
-          {/* Add your hamburger menu icon */}
-        </div>
-        {/* <div className={`nav-elements ${showNavbar && "active"}`}> */}
-          
+       <div className="title1">Task List 📝</div>
         <div className="user-login">{
           isAuthenticated()? <button className="login-button" style={{backgroundColor:"red"}} onClick={()=>(signout(() => {
             // console.log("signinout")
@@ -58,7 +52,7 @@ const Navbar = () => {
           </div>
         }
          
-        </div>
+        
       </div>
     </nav>
   );

@@ -1,5 +1,4 @@
 // TodoList.js
-
 import React, { useState,useEffect } from 'react';
 import TodoForm from './todoForm';
 import TaskCard from './todoCard';
@@ -13,8 +12,8 @@ const TodoList = () => {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        console.log(user._id)
-        const response = await axios.get(`https://todo-backend-nkpr.onrender.com//todos/${user._id}`, {
+       
+        const response = await axios.get(`https://todo-backend-nkpr.onrender.com/todos/${user._id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -25,7 +24,7 @@ const TodoList = () => {
           setTodos(response.data); // Assuming response.data is an array of todos
         }
       } catch (error) {
-        console.error('Error fetching todos:', error.message);
+        // console.error('Error fetching todos:', error.message);
         // Handle errors if any during API call
       }
     };
@@ -45,10 +44,10 @@ const TodoList = () => {
 
 
   return (
-    <div>
-      <h1>Todo List</h1>
+    <div className="mainpage">
+      <h1>Add New Task</h1>
       <TodoForm addTodo={addTodo} />
-      <div className="todo-cards">
+      <div className="todo-cards" style={{width:"100%", background:"white"}}>
         {todos.map((todo, index) => (
           <TaskCard key={index} todo={todo} showDetails={showTaskDetails} />
         ))}
