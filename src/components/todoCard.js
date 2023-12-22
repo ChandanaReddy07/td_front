@@ -22,7 +22,7 @@ const TaskCard = ({ todo,selectedTask }) => {
     setEditMode(!editMode);
   };
   const handleDelete = async () => {
-    e.stopPropagation();
+    e.stopPropagation();// Prevent event bubbling to the parent div
     try {
       const response = await axios.delete(
         `https://todo-backend-nkpr.onrender.com/todo/${todo._id}/${user._id}`,
