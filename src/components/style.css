@@ -190,12 +190,30 @@
   background-color: #0056b3;
 }
   
-/* YourComponent.css or App.css (where you manage your global styles) */
 .todo-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
-  gap: 20px; /* Adjust spacing between items */
-  /* Additional styling for the container */
+  gap: 20px;
+}
+
+/* For screens larger than a certain width, display three columns */
+@media (min-width: 768px) {
+  .todo-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* For medium-sized screens, display two columns */
+@media (max-width: 767px) {
+  .todo-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For smaller screens, display one column */
+@media (max-width: 480px) {
+  .todo-cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 /* Styling for the TaskCard component (Example) */
