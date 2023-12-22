@@ -22,6 +22,7 @@ const TaskCard = ({ todo,selectedTask }) => {
     setEditMode(!editMode);
   };
   const handleDelete = async () => {
+    e.stopPropagation();
     try {
       const response = await axios.delete(
         `https://todo-backend-nkpr.onrender.com/todo/${todo._id}/${user._id}`,
@@ -116,7 +117,7 @@ const TaskCard = ({ todo,selectedTask }) => {
         <div>
           <div className='navbar'>
           <h3>{todo.name}</h3>
-          <p onClick={handleDelete} style={{color:"red",fontWeight:"bolder"}} >DELETE</p>
+          <button onClick={handleDelete} className="login-button" style={{backgroundColor:"red"}}>DELETE</button>
           </div>
 
           {expanded && (
