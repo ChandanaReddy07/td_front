@@ -21,7 +21,7 @@ const TaskCard = ({ todo,selectedTask }) => {
     e.stopPropagation(); // Prevent event bubbling to the parent div
     setEditMode(!editMode);
   };
-  const handleDelete = async () => {
+  const handleDelete = async (e) => {
     e.stopPropagation();// Prevent event bubbling to the parent div
     try {
       const response = await axios.delete(
@@ -117,7 +117,7 @@ const TaskCard = ({ todo,selectedTask }) => {
         <div>
           <div className='navbar'>
           <h3>{todo.name}</h3>
-          <button onClick={handleDelete} className="login-button" style={{backgroundColor:"red"}}>DELETE</button>
+          <button onClick={handleDelete} className="login-button" style={{backgroundColor:"red",width:"40%"}}>DELETE</button>
           </div>
 
           {expanded && (

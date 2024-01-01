@@ -293,3 +293,67 @@
   color: red;
   cursor: pointer;
 }
+
+
+/* General table styling */
+.table-container {
+  margin: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Header styling */
+thead {
+  background-color: #f4f4f4;
+}
+
+th {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  font-weight: bold;
+}
+
+/* Body styling */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+}
+
+/* Hover effect for rows */
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+.billing-info {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+}
+
+.billing-info h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.billing-info p {
+  color: #666;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.billing-info strong {
+  color: #333;
+  font-weight: 600;
+}

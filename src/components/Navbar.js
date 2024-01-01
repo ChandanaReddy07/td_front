@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import Login from "./Login"; // Import the Login component
-import Signup from "./Signup"; // Import the Signup component
-import { isAuthenticated, signout } from "../helper/user";
+
+import { isAuthenticated } from "../helper/user";
+import GoogleSignInButton from "./LoginButton";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -31,6 +30,14 @@ const Navbar = () => {
     setShowSignupOverlay(false);
   };
 
+  const signout = () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("jwt");
+      // navigate("/");
+      window.location.reload();
+    }
+  };
+
   return (
     <nav className="navbar">
        <div className="title1">Task List 📝</div>
@@ -42,12 +49,31 @@ const Navbar = () => {
           Signout
         </button>  :
           <div>
-           {showLoginOverlay && <Login  onClose={handleCloseOverlay}  />}
-          {showSignupOverlay && <Signup  onClose={handleCloseOverlay}  />}
+        
           {!showLoginOverlay && !showSignupOverlay && (
-            <button className="login-button" onClick={handleLoginClick}>
-              Login
-            </button>
+             !isAuthenticated() ? (
+              <div>
+                {" "}
+                <GoogleSignInButton />
+              </div>
+            ) : (
+              <button
+
+              className="logoutbut"
+                style={{
+                  backgroundColor: "red",
+                  borderRadius: "10px",
+                  padding: "10px",
+                  color: "white",
+                  fontSize: "1.2rem",
+                  height: "40px",
+              
+                }}
+                onClick={signout}
+              >
+                Log out
+              </button>
+            )
           )}
           </div>
         }

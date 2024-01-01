@@ -9,15 +9,17 @@ export const authenticate = (data, next) => {
   
   export const isAuthenticated = () => {
     if (typeof window == 'undefined') {
-      return false;
+        return false;
     }
-    if (localStorage.getItem('jwt')) {
-      
-      return JSON.parse(localStorage.getItem('jwt'));
+    const jwt = localStorage.getItem('jwt');
+    if (jwt) {
+        const parsedJwt = JSON.parse(jwt);
+        // Additional validation can be added here (e.g., checking token expiration)
+        return parsedJwt; // or return true, if you just need a boolean
     } else {
-      return false;
+        return false;
     }
-  };
+};
 
   export const signout = (next) => {
     if (typeof window !== 'undefined') {
