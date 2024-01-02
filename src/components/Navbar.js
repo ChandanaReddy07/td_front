@@ -30,21 +30,23 @@ const Navbar = () => {
                 <span style={{ margin: "0 10px" ,fontSize:"1rem" }}>{user.name}</span>
               </div>
               <div className={`dropdown-body ${dropdownOpen && "open"}`}>
-                <div className="dropdown-item">
-                  <span className={`dropdown-item-dot`}>• </span>
+               
 
-                  <NavLink style={{textDecoration:"none"}} to="/bills">Bills</NavLink>
-                </div>
-                <div className="dropdown-item">
-                  <span className={`dropdown-item-dot`}>• </span>
+                <NavLink style={{textDecoration:"none"}} to="/bills"> <div className="dropdown-item">
+                  Bills
+                </div></NavLink>
+              
 
-                  <NavLink style={{textDecoration:"none"}} to="/usage">Usage</NavLink>
-                </div>
-                <div className="dropdown-item">
-                  <span className={`dropdown-item-dot`}>• </span>
+                  <NavLink style={{textDecoration:"none"}} to="/usage"> <div className="dropdown-item">
+                  Usage
+                </div></NavLink>
 
-                  <button style={{backgroundColor:"red",color:"white", padding:"5px" , borderRadius:"2px" ,borderColor:"white",cursor:"pointer"}} onClick={signout}>Sign out</button>
-                </div>
+                <NavLink style={{textDecoration:"none"}} to="/usage"> <div className="dropdown-item">
+                <button style={{backgroundColor:"red",color:"white", padding:"5px" , borderRadius:"2px" ,borderColor:"white",cursor:"pointer"}} onClick={signout}>Sign out</button>
+                  
+                </div></NavLink>
+              
+                
               </div>
             </div>
           </div>
