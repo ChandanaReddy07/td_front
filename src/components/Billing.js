@@ -43,11 +43,26 @@ function CurrentBill() {
       <p><strong>Start Date:</strong> {formatDate(bill.startDate)}</p>
       <h3>Action Logs</h3>
       <ul>
-        {bill.actionLogs && bill.actionLogs.map((log, index) => (
-          <li key={index}>{log.actionType} - {formatDate(log.date)} - ${COST_PER_ACTION[log.actionType]}</li>
-        ))}
+      <table>
+  <thead>
+    <tr>
+      <th>Action Type</th>
+      <th>Date</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+  <tbody>
+    {bill.actionLogs && bill.actionLogs.map((log, index) => (
+      <tr key={index}>
+        <td>{log.actionType}</td>
+        <td>{formatDate(log.date)}</td>
+        <td>${COST_PER_ACTION[log.actionType]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
       </ul>
-      <p><strong>Total Amount:</strong> ${bill.totalAmount}</p>
+      <p><strong>Total Amount:</strong> ${bill.totalBill}</p>
       <InvoiceButton userId={user._id} />
     </div>
     </MainPage>
