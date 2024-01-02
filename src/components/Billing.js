@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { isAuthenticated } from '../helper/user';
 import InvoiceButton from './InvoiceButton'; // Import your InvoiceButton component
+import MainPage from './mainpage';
 
 const COST_PER_ACTION = {
   GET: 0,
@@ -36,6 +37,7 @@ function CurrentBill() {
   
 
   return (
+    <MainPage>
     <div className="bill-container">
       <h2>Current Bill</h2>
       <p><strong>Start Date:</strong> {formatDate(bill.startDate)}</p>
@@ -48,6 +50,7 @@ function CurrentBill() {
       <p><strong>Total Amount:</strong> ${bill.totalAmount}</p>
       <InvoiceButton />
     </div>
+    </MainPage>
   );
 }
 
