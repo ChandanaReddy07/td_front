@@ -27,7 +27,7 @@ const Navbar = () => {
             <div className="dropdown">
               <div className="dropdown-header" onClick={toggleDropdown}>
                 <span style={{ fontSize: "1.5rem" }}>🐼</span>
-                <span style={{ margin: "0 10px" }}>{user.name}</span>
+                <span style={{ margin: "0 10px" ,fontSize:"1rem" }}>{user.name}</span>
               </div>
               <div className={`dropdown-body ${dropdownOpen && "open"}`}>
                 <div className="dropdown-item">
