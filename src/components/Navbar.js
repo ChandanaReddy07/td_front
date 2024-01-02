@@ -2,17 +2,19 @@ import React, { useState } from "react";
 import { isAuthenticated } from "../helper/user";
 import GoogleSignInButton from "./LoginButton";
 import "./navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate } from "react-router-dom";
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { user } = isAuthenticated();
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
+  const navigate = useNavigate();
+
   const signout = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("jwt");
-      window.location.reload();
+      navigate("/");
     }
   };
 

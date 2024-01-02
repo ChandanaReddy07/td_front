@@ -41,7 +41,7 @@ const handleSubmit = async (e) => {
        
   
         // Clear input fields
-        window.location.href = "/";
+        
 
         setTodoName('');
         setDescription('');
