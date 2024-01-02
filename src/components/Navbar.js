@@ -43,7 +43,7 @@ const Navbar = () => {
                 <div className="dropdown-item">
                   <span className={`dropdown-item-dot`}>• </span>
 
-                  <button style={{backgroundColor:"red",color:"white", padding:"1px" , borderRadius:"2px"}} onClick={signout}>Sign out</button>
+                  <button style={{backgroundColor:"red",color:"white", padding:"5px" , borderRadius:"2px" ,borderColor:"white",cursor:"pointer"}} onClick={signout}>Sign out</button>
                 </div>
               </div>
             </div>
