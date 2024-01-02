@@ -48,7 +48,7 @@ function CurrentBill() {
         ))}
       </ul>
       <p><strong>Total Amount:</strong> ${bill.totalAmount}</p>
-      <InvoiceButton />
+      <InvoiceButton userId={user._id} />
     </div>
     </MainPage>
   );
