@@ -35,11 +35,11 @@
   }
   
   .dropdown {
-    width: 300px;
+    width: 200px;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,.1);
     background-color: white;
-    /* position:relative; */
+    position:relative;
 
   }
   
@@ -52,7 +52,8 @@
   }
   
   .dropdown-body {
-    /* position: absolute; */
+    width: 200px;
+    position: absolute;
     padding: 5px;
     border-top: 1px solid #E5E8EC;
     display: none;
@@ -60,6 +61,7 @@
   }
   
   .dropdown-body.open {
+    width: 200px;
     display: block;
     z-index:5;
     background-color: #E5E8EC;
