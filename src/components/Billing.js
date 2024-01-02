@@ -3,6 +3,7 @@ import axios from 'axios';
 import { isAuthenticated } from '../helper/user';
 import InvoiceButton from './InvoiceButton'; // Import your InvoiceButton component
 import MainPage from './mainpage';
+import "./bill.css"
 
 const COST_PER_ACTION = {
   GET: 0,
