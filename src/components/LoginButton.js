@@ -21,7 +21,7 @@ const GoogleSignInButton = () => {
   
 
   return (
-    <GoogleOAuthProvider  clientId="234133504708-bes61o661qvdge5qtj8268vhd401b5q7.apps.googleusercontent.com">
+    <GoogleOAuthProvider  clientId="165139008887-p9ce177qn5uimb929ta45adler0246sv.apps.googleusercontent.com">
     <GoogleLogin
         buttonText=""
         onSuccess={ async credentialResponse => {
