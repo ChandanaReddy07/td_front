@@ -28,12 +28,38 @@ const Navbar = () => {
               <span style={ {margin:"0 10px"}}>{user.name}</span>
             </div>
             {dropdownOpen && (
-              <div className="dropdown-menu">
-                 <NavLink to="/bills">Bills</NavLink>
-                 <NavLink to="/usage">Usage</NavLink>
+              // <div className="dropdown-menu">
+              //    <NavLink to="/bills">Bills</NavLink>
+              //    <NavLink to="/usage">Usage</NavLink>
               
-                <button onClick={signout}>Sign out</button>
-              </div>
+              //   <button onClick={signout}>Sign out</button>
+              // </div>
+
+<div className='dropdown'>
+
+<div className='dropdown-body open'>
+ 
+    <div className="dropdown-item"  >
+      <span className={`dropdown-item-dot`}>• </span>
+      
+      <NavLink to="/bills">Bills</NavLink>
+     
+    </div>
+    <div className="dropdown-item"  >
+      <span className={`dropdown-item-dot`}>• </span>
+      
+      <NavLink to="/usage">Usage</NavLink>
+              
+    </div>
+    <div className="dropdown-item"  >
+      <span className={`dropdown-item-dot`}>• </span>
+      
+              
+      <button onClick={signout}>Sign out</button>
+    </div>
+
+</div>
+</div>
             )}
           </div>
         ) : (
