@@ -39,7 +39,8 @@
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,.1);
     background-color: white;
-    position:relative;
+    /* position:relative; */
+
   }
   
   .dropdown-header {
@@ -51,7 +52,7 @@
   }
   
   .dropdown-body {
-    position: absolute;
+    /* position: absolute; */
     padding: 5px;
     border-top: 1px solid #E5E8EC;
     display: none;
