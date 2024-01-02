@@ -36,7 +36,7 @@ const TaskCard = ({ todo,selectedTask }) => {
   
       if (response.status === 200) {
        
-        window.location.href = "/";
+        // window.location.href = "/";
   
        
       } else {
@@ -68,7 +68,7 @@ const TaskCard = ({ todo,selectedTask }) => {
       if (response.status === 200) {
         // If the update is successful, exit edit mode
         setEditMode(false);
-        window.location.href = "/";
+        // window.location.href = "/";
   
        
       } else {

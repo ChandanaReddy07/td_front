@@ -10,10 +10,8 @@ const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [selectedTask, setSelectedTask] = useState(null);
   const { user, token } = isAuthenticated();
-  
-  useEffect(() => {
- 
 
+  useEffect(() => {
     fetchTodos();
   }, []);
 
