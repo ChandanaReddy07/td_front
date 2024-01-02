@@ -15,6 +15,8 @@ const Navbar = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("jwt");
       navigate("/");
+      window.location.reload();
+
     }
   };
 
