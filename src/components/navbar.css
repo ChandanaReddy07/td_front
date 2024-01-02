@@ -55,7 +55,7 @@
     padding: 5px;
     border-top: 1px solid #E5E8EC;
     display: none;
-    z-index:3;
+    z-index:5;
   }
   
   .dropdown-body.open {
@@ -67,6 +67,8 @@
   
   .dropdown-item {
     padding: 10px;
+    z-index:5;
+
   }
   
   .dropdown-item:hover {
