@@ -6,7 +6,7 @@ function InvoiceButton({ userId }) {
         try {
             const response = await axios.post(`https://todo-backend-nkpr.onrender.com/todo/generate-invoice/${userId}`);
             console.log(response.data);
-            alert('Invoice generation initiated.');
+            alert('Invoice is been sent to your email');
         } catch (error) {
             console.error('Error generating invoice:', error);
             alert('Failed to initiate invoice generation.');
