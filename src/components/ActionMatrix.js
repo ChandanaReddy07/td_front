@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { isAuthenticated } from '../helper/user';
 import MainPage from './mainpage';
+import "./bill.css"
 
 function ActionMatrix() {
   const [actionData, setActionData] = useState([]);
