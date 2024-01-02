@@ -33,17 +33,17 @@ const Navbar = () => {
                 <div className="dropdown-item">
                   <span className={`dropdown-item-dot`}>• </span>
 
-                  <NavLink style={{fontStyle:"none"}} to="/bills">Bills</NavLink>
+                  <NavLink style={{textDecoration:"none"}} to="/bills">Bills</NavLink>
                 </div>
                 <div className="dropdown-item">
                   <span className={`dropdown-item-dot`}>• </span>
 
-                  <NavLink style={{fontStyle:"none"}} to="/usage">Usage</NavLink>
+                  <NavLink style={{textDecoration:"none"}} to="/usage">Usage</NavLink>
                 </div>
                 <div className="dropdown-item">
                   <span className={`dropdown-item-dot`}>• </span>
 
-                  <button style={{backgroundColor:"red"}} onClick={signout}>Sign out</button>
+                  <button style={{backgroundColor:"red",color:"white", padding:"1px" , borderRadius:"2px"}} onClick={signout}>Sign out</button>
                 </div>
               </div>
             </div>
