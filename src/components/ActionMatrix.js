@@ -63,11 +63,12 @@ function ActionMatrix() {
       </thead>
       <tbody>
         {actionData.map((item, index) => (
-          <tr key={index}>
-            <td>{item.date}</td>
-            <td>{item.actionType}</td>
-            <td>{item.count}</td>
-          </tr>
+          item.count > 0 ? <tr key={index}>
+          <td>{item.date}</td>
+          <td>{item.actionType}</td>
+          <td>{item.count}</td>
+        </tr>:""
+          
         ))}
       </tbody>
    
