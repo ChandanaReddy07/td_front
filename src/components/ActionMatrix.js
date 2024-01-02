@@ -29,6 +29,7 @@ function ActionMatrix() {
       else if (user.startDate) {
         setNoTaskMessage("You haven't had any task since the last date of Billing");
       }
+
       else {
         setNoTaskMessage("You haven't created any task yet.")
       }
@@ -44,7 +45,7 @@ function ActionMatrix() {
 
   return (
     <MainPage>
-    
+     <div className="bill-container">
       {noTaskMessage ? (
         <p>{noTaskMessage}</p>
       ) : (
@@ -68,6 +69,7 @@ function ActionMatrix() {
       </tbody>
    
     </table>)}
+    </div>
     </MainPage>
   );
 }
