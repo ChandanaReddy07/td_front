@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="title1">Task List 📝</div>
+      <NavLink to="/"><div className="title1">Task List 📝</div></NavLink>
       <div className="user-login">
         {isAuthenticated() ? (
           <div className="user-info">
