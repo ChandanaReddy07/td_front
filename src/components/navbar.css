@@ -57,6 +57,7 @@
     padding: 5px;
     border-top: 1px solid #E5E8EC;
     display: none;
+    font-size: 2rem;
     z-index:5;
   }
   
@@ -64,7 +65,7 @@
     width: 200px;
     display: block;
     z-index:5;
-    background-color: #E5E8EC;
+    background-color: #ffffff;
 
   }
   
