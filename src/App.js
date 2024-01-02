@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<TodoList />} />
          
-          <Route path="/bill" element={<CurrentBill />} />
+          <Route path="/bills" element={<CurrentBill />} />
           <Route path="/usage" element={< ActionMatrix/>} />
           
         </Routes>
