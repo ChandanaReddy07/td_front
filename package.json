@@ -2,10 +2,10 @@
   "name": "my-react-app",
   "version": "0.1.0",
   "private": true,
-  "proxy":"https://todo-backend-nkpr.onrender.com",
+  "proxy": "https://todo-backend-nkpr.onrender.com",
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@react-oauth/google": "^0.12.1",
-
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

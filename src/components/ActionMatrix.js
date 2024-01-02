@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { isAuthenticated } from '../helper/user';
+import MainPage from './mainpage';
 
 function ActionMatrix() {
   const [actionData, setActionData] = useState([]);
@@ -35,6 +36,7 @@ function ActionMatrix() {
   }, [user._id, token]); // Add dependencies here
 
   return (
+    <MainPage>
     <table>
       <thead>
         <tr>
@@ -52,7 +54,9 @@ function ActionMatrix() {
           </tr>
         ))}
       </tbody>
+   
     </table>
+    </MainPage>
   );
 }
 

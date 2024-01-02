@@ -1,53 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { isAuthenticated } from '../helper/user'; // Assuming you have a user authentication helper
+import { isAuthenticated } from '../helper/user';
+import InvoiceButton from './InvoiceButton'; // Import your InvoiceButton component
 
-function BillingInfo() {
-    const [bill, setBillingData] = useState({});
-    const { user, token } = isAuthenticated();
+const COST_PER_ACTION = {
+  GET: 0,
+  POST: 0.1,
+  PUT: 0.2,
+  DELETE: 0
+};
 
-    useEffect(() => {
-        const fetchBillingData = async () => {
-            try {
-                const response = await axios.get(`https://todo-backend-nkpr.onrender.com/billing/${user._id}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                setBillingData(response.data);
-                console.log("billllllllllllll",bill)
-            } catch (error) {
-                console.error('Error fetching billing data:', error);
-            }
-        };
+function CurrentBill() {
+  const [bill, setBill] = useState({});
+  const { user, token } = isAuthenticated();
 
-        fetchBillingData();
-    }, [user._id, token]);
-
-    const formatDate = (date) => {
-        return new Date(date).toLocaleDateString("en-US", {
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric'
+  useEffect(() => {
+    const fetchBillData = async () => {
+      try {
+        const response = await axios.get(`https://todo-backend-nkpr.onrender.com/billing/${user._id}`, {
+          headers: { Authorization: `Bearer ${token}` }
         });
-      };
-    
-      return (
-        <div className="bill-container">
-          <h2>Bill Details</h2>
-          {/* <p><strong>Billing Date:</strong> {formatDate(bill.billingDate)}</p> */}
-          <p><strong>Total Amount:</strong> ${bill.totalBill}</p>
-          <p><strong>Status:</strong> {bill.isPaid ? 'Paid' : 'Unpaid'}</p>
-    
-          <h3>Action Logs</h3>
-          <ul>
-            {bill.actionLogs && bill.actionLogs.map((log, index) => (
-               
-               <li key={index}>{log.actionType} - {formatDate(log.date)}</li>
-            ))}
-          </ul>
-        </div>
-      );
+        setBill(response.data);
+      } catch (error) {
+        console.error('Error fetching bill data:', error);
+      }
+    };
+
+    fetchBillData();
+  }, [user._id, token]);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  };
+  
+
+  return (
+    <div className="bill-container">
+      <h2>Current Bill</h2>
+      <p><strong>Start Date:</strong> {formatDate(bill.startDate)}</p>
+      <h3>Action Logs</h3>
+      <ul>
+        {bill.actionLogs && bill.actionLogs.map((log, index) => (
+          <li key={index}>{log.actionType} - {formatDate(log.date)} - ${COST_PER_ACTION[log.actionType]}</li>
+        ))}
+      </ul>
+      <p><strong>Total Amount:</strong> ${bill.totalAmount}</p>
+      <InvoiceButton />
+    </div>
+  );
 }
 
-export default BillingInfo;
+export default CurrentBill;
