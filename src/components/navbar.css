@@ -60,6 +60,8 @@
   
   .dropdown-body.open {
     display: block;
+    z-index:5;
+
   }
   
   .dropdown-item {
