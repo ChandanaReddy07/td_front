@@ -16,7 +16,7 @@ function ActionMatrix() {
           },
         });
 
-        if (response.data) {
+        if (response.data && Object.keys(response.data).length > 0) {
           // Transform the object into an array of objects
           const transformedData = Object.entries(response.data).map(([date, actionCounts]) => {
             return Object.entries(actionCounts).map(([actionType, count]) => {
@@ -26,6 +26,13 @@ function ActionMatrix() {
 
           setActionData(transformedData);
         }
+      else if (user.startDate) {
+        setNoTaskMessage("You haven't had any task since the last date of Billing");
+      }
+      else {
+        setNoTaskMessage("You haven't created any task yet.")
+      }
+
       } catch (error) {
         console.error('Error fetching action counts:', error.message);
         // Handle errors if any during API call
@@ -37,6 +44,11 @@ function ActionMatrix() {
 
   return (
     <MainPage>
+    
+      {noTaskMessage ? (
+        <p>{noTaskMessage}</p>
+      ) : (
+      
     <table>
       <thead>
         <tr>
@@ -55,7 +67,7 @@ function ActionMatrix() {
         ))}
       </tbody>
    
-    </table>
+    </table>)}
     </MainPage>
   );
 }
