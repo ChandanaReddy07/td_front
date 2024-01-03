@@ -1,6 +1,37 @@
-# Frontend Application README  [Deployed Link](https://td-front.vercel.app/)
+# Frontend Application README  
+[Try this mini Saas and generate your automated Bill 👉🏻](https://td-front.vercel.app/)
 
-This application is a task management and billing system, integrating Google OAuth for user authentication. It allows users to perform Create, Read, Update, Delete (CRUD) operations on tasks. The system tracks these activities and utilizes them for automated billing purposes. User actions are logged, and based on these logs, invoices are generated, including detailed usage metrics. The billing process is automated through a monthly cron job, leveraging Zapier to send out invoices via email. This setup provides an end-to-end solution from task management to billing and invoicing, streamlining user engagement and the billing process.
+This application is a task management and billing system, that integrates Google OAuth for user authentication. It allows users to perform Create, Read, Update, Delete (CRUD) operations on tasks. The system tracks these activities and utilizes them for automated billing purposes. User actions are logged, and based on these logs, invoices are generated, including detailed usage metrics. The billing process is automated through a monthly cron job, leveraging Zapier to send out invoices via email. This setup provides an end-to-end solution from task management to billing and invoicing, streamlining user engagement and the billing process.
+
+Main Page
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/19c4a06f-bee1-4375-80e7-4959851af122)
+
+Login Page
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/649f2729-8f29-4077-9f87-7ab5a0e14b54)
+
+Main Page After Login
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/f6d6916e-5be9-4b33-8e61-b50a19a0c84a)
+
+
+
+When you click on any task you created previously
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/a1e4f9e4-899a-4752-aa51-d34b50d391f8)
+
+
+When you click on the usage button from the dropdown you get redirected to a page that consists of a Usage Matrix
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/ee8538f4-6ec6-4a78-bdb2-1ad425d1502d)
+
+When you click on the Bill button from the drop-down It redirects you to Bill page
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/a0b16ebe-95ad-484c-a302-522cd42089d6)
+
+When you click on the Generate Invoice button present at the bottom of the Bill 
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/d9653b0f-6966-4f98-90f9-25e33ea7af1f)
+
+After clicking on the Generate Invoice button you can find an invoice email sent to your email
+![image](https://github.com/ChandanaReddy07/td_front/assets/57955783/66d6fdde-2d62-437b-a32a-cf67e8920266)
+
+
+
 
 ## Setting Up and Running the Application
 
