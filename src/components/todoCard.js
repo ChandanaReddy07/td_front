@@ -3,14 +3,14 @@ import axios from "axios";
 import React, { useState } from "react";
 import { isAuthenticated } from "../helper/user";
 
-const TaskCard = ({ todo, selectedTask }) => {
+const TaskCard = ({ todo, selectedTask , xState1 ,xState2 }) => {
   const [expanded, setExpanded] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [editedName, setEditedName] = useState(todo.name);
   const [editedDescription, setEditedDescription] = useState(todo.description);
 
-  const { x1, setX1 } = props.xState1;
-  const { x, setX } = props.xState2;
+  const { x1, setX1 } = xState1;
+  const { x, setX } = xState2;
   const { user, token } = isAuthenticated();
 
   const toggleExpand = () => {
