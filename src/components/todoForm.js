@@ -42,7 +42,7 @@ const TodoForm = () => {
         if (response.status === 200) {
           // Clear input fields
 
-          window.location.href = "/";
+          // window.location.href = "/";
 
           setTodoName("");
           setDescription("");

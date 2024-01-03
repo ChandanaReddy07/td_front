@@ -13,7 +13,7 @@ const TodoList = () => {
 
   useEffect(() => {
     fetchTodos();
-  }, []);
+  }, [todos]);
 
   const fetchTodos = async () => {
     try {

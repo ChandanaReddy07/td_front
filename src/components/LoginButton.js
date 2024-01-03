@@ -20,7 +20,7 @@ const GoogleSignInButton = () => {
   
 
   return (
-    <GoogleOAuthProvider  clientId="1093363613051-udeii0li481lvl2rogt9c1ade7vu12ug.apps.googleusercontent.com">
+    <GoogleOAuthProvider  clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
     <GoogleLogin
         buttonText=""
         onSuccess={ async credentialResponse => {
