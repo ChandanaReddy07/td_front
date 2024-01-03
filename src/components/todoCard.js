@@ -1,16 +1,15 @@
 // TaskCard.js
-import axios from 'axios';
-import React, { useState } from 'react';
-import { isAuthenticated } from '../helper/user';
+import axios from "axios";
+import React, { useState } from "react";
+import { isAuthenticated } from "../helper/user";
 
-const TaskCard = ({ todo,selectedTask }) => {
+const TaskCard = ({ todo, selectedTask }) => {
   const [expanded, setExpanded] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [editedName, setEditedName] = useState(todo.name);
   const [editedDescription, setEditedDescription] = useState(todo.description);
 
   const { user, token } = isAuthenticated();
-
 
   const toggleExpand = () => {
     setExpanded(!expanded);
@@ -22,31 +21,28 @@ const TaskCard = ({ todo,selectedTask }) => {
     setEditMode(!editMode);
   };
   const handleDelete = async (e) => {
-    e.stopPropagation();// Prevent event bubbling to the parent div
+    e.stopPropagation(); // Prevent event bubbling to the parent div
     try {
       const response = await axios.delete(
         `https://todo-backend-nkpr.onrender.com/todo/${todo._id}/${user._id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
-  
+
       if (response.status === 200) {
-       
         window.location.href = "/";
-  
-       
       } else {
         // Handle error if the API request fails
-        console.error('Failed to update task:', response.statusText);
-        // You can display an error message or take other actions here
+        console.error("Failed to update task:", response.statusText);
+     
       }
     } catch (error) {
-      console.error('Error updating task:', error.message);
-      // Handle network errors or other exceptions here
+      console.error("Error updating task:", error.message);
+      
     }
   };
   const handleEdit = async () => {
@@ -60,28 +56,25 @@ const TaskCard = ({ todo,selectedTask }) => {
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
-  
+
       if (response.status === 200) {
         // If the update is successful, exit edit mode
         setEditMode(false);
         window.location.href = "/";
-  
-       
       } else {
         // Handle error if the API request fails
-        console.error('Failed to update task:', response.statusText);
-        // You can display an error message or take other actions here
+        console.error("Failed to update task:", response.statusText);
+       
       }
     } catch (error) {
-      console.error('Error updating task:', error.message);
+      console.error("Error updating task:", error.message);
       // Handle network errors or other exceptions here
     }
   };
-  
 
   const handleNameChange = (e) => {
     setEditedName(e.target.value);
@@ -92,7 +85,10 @@ const TaskCard = ({ todo,selectedTask }) => {
   };
 
   return (
-    <div className={`todo-card ${expanded ? 'expanded' : ''}`} onClick={toggleExpand}>
+    <div
+      className={`todo-card ${expanded ? "expanded" : ""}`}
+      onClick={toggleExpand}
+    >
       {editMode ? (
         <div>
           <p>Name:</p>
@@ -102,9 +98,9 @@ const TaskCard = ({ todo,selectedTask }) => {
             onChange={handleNameChange}
             onClick={(e) => e.stopPropagation()} // Prevent toggle on input click
           />
-          <p >Description:</p>
+          <p>Description:</p>
           <input
-          type="text"
+            type="text"
             value={editedDescription}
             onChange={handleDescriptionChange}
             onClick={(e) => e.stopPropagation()} // Prevent toggle on textarea click
@@ -115,14 +111,22 @@ const TaskCard = ({ todo,selectedTask }) => {
         </div>
       ) : (
         <div>
-          <div className='navbar'>
-          <h3>{todo.name}</h3>
-          <button onClick={handleDelete} className="login-button" style={{backgroundColor:"red",width:"40%"}}>DELETE</button>
+          <div className="navbar">
+            <h3>{todo.name}</h3>
+            <button
+              onClick={handleDelete}
+              className="login-button"
+              style={{ backgroundColor: "red", width: "40%" }}
+            >
+              DELETE
+            </button>
           </div>
 
           {expanded && (
-            <div >
-              <div style={{padding:"10px",display:"flex"}}><b>Description:</b> &nbsp;  {todo.description}</div>
+            <div>
+              <div style={{ padding: "10px", display: "flex" }}>
+                <b>Description:</b> &nbsp; {todo.description}
+              </div>
               <div className="buttons">
                 <button onClick={toggleEditMode}>Edit</button>
               </div>

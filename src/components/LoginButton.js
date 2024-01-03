@@ -2,7 +2,6 @@ import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
 import axios from 'axios';
 import { authenticate } from '../helper/user';
 
-
 function decodeJwtResponse(token) {
     var base64Url = token.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
