@@ -2,6 +2,7 @@ import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
 import axios from 'axios';
 import { authenticate } from '../helper/user';
 require('dotenv').config();
+
 function decodeJwtResponse(token) {
     var base64Url = token.split(".")[1];
     var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -24,7 +25,7 @@ const GoogleSignInButton = () => {
     <GoogleLogin
         buttonText=""
         onSuccess={ async credentialResponse => {
-                     console.log(credentialResponse);
+                    //  console.log(credentialResponse);
                     // var {user,token}=isAuthenticated();
                     const responsePayload = decodeJwtResponse(credentialResponse.credential);
                     const email = responsePayload.email;
