@@ -1,5 +1,5 @@
 # Frontend Application README  
-[Try this mini Saas and generate your automated Bill 👉🏻](https://td-front.vercel.app/)
+Try this mini Saas and generate your automated Bill 👉🏻 [https://td-front.vercel.app/](https://td-front.vercel.app/)
 
 This application is a task management and billing system, that integrates Google OAuth for user authentication. It allows users to perform Create, Read, Update, Delete (CRUD) operations on tasks. The system tracks these activities and utilizes them for automated billing purposes. User actions are logged, and based on these logs, invoices are generated, including detailed usage metrics. The billing process is automated through a monthly cron job, leveraging Zapier to send out invoices via email. This setup provides an end-to-end solution from task management to billing and invoicing, streamlining user engagement and the billing process.
 
