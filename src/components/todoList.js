@@ -8,12 +8,14 @@ import MainPage from "./mainpage";
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+  const [x, setX] = useState(false);
+  const [x1, setX1] = useState(false);
   const [selectedTask, setSelectedTask] = useState(null);
   const { user, token } = isAuthenticated();
 
   useEffect(() => {
     fetchTodos();
-  }, [todos]);
+  }, [todos,x , x1]);
 
   const fetchTodos = async () => {
     try {
@@ -56,7 +58,7 @@ const TodoList = () => {
           style={{ width: "100%", background: "white" }}
         >
           {todos.map((todo, index) => (
-            <TaskCard key={index} todo={todo} showDetails={showTaskDetails} />
+            <TaskCard key={index} todo={todo}  xState1={{ x1, setX1 }}  xState2={{ x, setX }} showDetails={showTaskDetails} />
           ))}
         </div>
       </div>

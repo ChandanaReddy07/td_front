@@ -9,6 +9,8 @@ const TaskCard = ({ todo, selectedTask }) => {
   const [editedName, setEditedName] = useState(todo.name);
   const [editedDescription, setEditedDescription] = useState(todo.description);
 
+  const { x1, setX1 } = props.xState1;
+  const { x, setX } = props.xState2;
   const { user, token } = isAuthenticated();
 
   const toggleExpand = () => {
@@ -34,7 +36,8 @@ const TaskCard = ({ todo, selectedTask }) => {
       );
 
       if (response.status === 200) {
-        window.location.href = "/";
+        // window.location.href = "/";
+        setX(!x)
       } else {
         // Handle error if the API request fails
         console.error("Failed to update task:", response.statusText);
@@ -64,7 +67,8 @@ const TaskCard = ({ todo, selectedTask }) => {
       if (response.status === 200) {
         // If the update is successful, exit edit mode
         setEditMode(false);
-        window.location.href = "/";
+        // window.location.href = "/";
+        setX1(!x1)
       } else {
         // Handle error if the API request fails
         console.error("Failed to update task:", response.statusText);
