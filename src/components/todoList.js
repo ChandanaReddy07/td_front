@@ -15,7 +15,7 @@ const TodoList = () => {
 
   useEffect(() => {
     fetchTodos();
-  }, [todos,x , x1]);
+  }, [todos, x, x1]);
 
   const fetchTodos = async () => {
     try {
@@ -32,12 +32,8 @@ const TodoList = () => {
       if (response.data) {
         setTodos(response.data); // Assuming response.data is an array of todos
       }
-    } catch (error) {
-      // console.error('Error fetching todos:', error.message);
-      // Handle errors if any during API call
-    }
+    } catch (error) {}
   };
-
 
   const addTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
@@ -58,7 +54,13 @@ const TodoList = () => {
           style={{ width: "100%", background: "white" }}
         >
           {todos.map((todo, index) => (
-            <TaskCard key={index} todo={todo}  xState1={{ x1, setX1 }}  xState2={{ x, setX }} showDetails={showTaskDetails} />
+            <TaskCard
+              key={index}
+              todo={todo}
+              xState1={{ x1, setX1 }}
+              xState2={{ x, setX }}
+              showDetails={showTaskDetails}
+            />
           ))}
         </div>
       </div>

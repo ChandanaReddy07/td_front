@@ -1,77 +1,75 @@
-import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
-import axios from 'axios';
-import { authenticate } from '../helper/user';
+import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
+import axios from "axios";
+import { authenticate } from "../helper/user";
 
 function decodeJwtResponse(token) {
-    var base64Url = token.split(".")[1];
-    var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-    var jsonPayload = decodeURIComponent(atob(base64).split("").map(function (c) {
-        return "%" + (
-            "00" + c.charCodeAt(0).toString(16)
-        ).slice(-2);
-    }).join(""));
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map(function (c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
 
-    return JSON.parse(jsonPayload);
+  return JSON.parse(jsonPayload);
 }
 
-
-
 const GoogleSignInButton = () => {
-  
-
   return (
-    <GoogleOAuthProvider  clientId="1093363613051-udeii0li481lvl2rogt9c1ade7vu12ug.apps.googleusercontent.com">
-    <GoogleLogin
+    <GoogleOAuthProvider clientId="1093363613051-udeii0li481lvl2rogt9c1ade7vu12ug.apps.googleusercontent.com">
+      <GoogleLogin
         buttonText=""
-        onSuccess={ async credentialResponse => {
-                     console.log(credentialResponse);
-                    // var {user,token}=isAuthenticated();
-                    const responsePayload = decodeJwtResponse(credentialResponse.credential);
-                    const email = responsePayload.email;
-                    //console.log(email);
-                    
-                        try {
-                          const response = await axios.post('https://todo-backend-nkpr.onrender.com/auth/google', { token: credentialResponse.credential });
-                          authenticate(response.data, () => {
-                            console.log("yes i have set the key value pair");
-                            window.location.reload();
-                          });
-                          alert('Login successful');
-                        } catch (error) {
-                          console.log(error);
-                        }
-                   
-                   
-                  }
-                }
-                onError={
-                  () => {
-                    console.log('Login Failed');
-                  }}
-        cookiePolicy={'single_host_origin'}
-        render={renderProps => (
+        onSuccess={async (credentialResponse) => {
+          console.log(credentialResponse);
+          // var {user,token}=isAuthenticated();
+          const responsePayload = decodeJwtResponse(
+            credentialResponse.credential
+          );
+          const email = responsePayload.email;
+          //console.log(email);
+
+          try {
+            const response = await axios.post(
+              "https://todo-backend-nkpr.onrender.com/auth/google",
+              { token: credentialResponse.credential }
+            );
+            authenticate(response.data, () => {
+              console.log("yes i have set the key value pair");
+              window.location.reload();
+            });
+            alert("Login successful");
+          } catch (error) {
+            console.log(error);
+          }
+        }}
+        onError={() => {
+          console.log("Login Failed");
+        }}
+        cookiePolicy={"single_host_origin"}
+        render={(renderProps) => (
           <button
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
             style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '50%',
-              backgroundColor: '#FFFFFF',
-              boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+              width: "56px",
+              height: "56px",
+              borderRadius: "50%",
+              backgroundColor: "#FFFFFF",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}
           >
             <img
               src="https://img.icons8.com/color/48/000000/google-logo.png"
               alt="Sign in with Google"
-              style={{ width: '32px', height: '32px' }}
+              style={{ width: "32px", height: "32px" }}
             />
           </button>
         )}
       />
-        </GoogleOAuthProvider>
-
-    
+    </GoogleOAuthProvider>
   );
 };
 

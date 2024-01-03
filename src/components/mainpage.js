@@ -1,14 +1,13 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React from "react";
+import Navbar from "./Navbar";
 
 const MainPage = ({ children }) => {
-
   return (
     <div>
-        <Navbar/>
-        {children}
+      <Navbar />
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;

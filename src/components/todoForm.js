@@ -42,14 +42,11 @@ const TodoForm = () => {
         if (response.status === 200) {
           // Clear input fields
 
-          // window.location.href = "/";
-
           setTodoName("");
           setDescription("");
         } else {
           // Handle error if the API request fails
           console.error("Failed to create todo:", response.statusText);
-          // You can display an error message or take other actions here
         }
       } catch (error) {
         console.error("Error creating todo:", error.message);

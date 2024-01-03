@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { isAuthenticated } from "../helper/user";
 
-const TaskCard = ({ todo, selectedTask , xState1 ,xState2 }) => {
+const TaskCard = ({ todo, selectedTask, xState1, xState2 }) => {
   const [expanded, setExpanded] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const [editedName, setEditedName] = useState(todo.name);
@@ -36,15 +36,13 @@ const TaskCard = ({ todo, selectedTask , xState1 ,xState2 }) => {
       );
 
       if (response.status === 200) {
-        setX(!x)
+        setX(!x);
       } else {
         // Handle error if the API request fails
         console.error("Failed to update task:", response.statusText);
-     
       }
     } catch (error) {
       console.error("Error updating task:", error.message);
-      
     }
   };
   const handleEdit = async () => {
@@ -66,16 +64,13 @@ const TaskCard = ({ todo, selectedTask , xState1 ,xState2 }) => {
       if (response.status === 200) {
         // If the update is successful, exit edit mode
         setEditMode(false);
-        // window.location.href = "/";
-        setX1(!x1)
+        setX1(!x1);
       } else {
         // Handle error if the API request fails
         console.error("Failed to update task:", response.statusText);
-       
       }
     } catch (error) {
       console.error("Error updating task:", error.message);
-      // Handle network errors or other exceptions here
     }
   };
 

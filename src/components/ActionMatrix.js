@@ -29,7 +29,7 @@ function ActionMatrix() {
 
           setActionData(transformedData);
         }
-      else if (user.startDate) {
+      else if (user.startDate !== null) {
         setNoTaskMessage("You haven't had any task since the last date of Billing");
       }
 
@@ -39,7 +39,6 @@ function ActionMatrix() {
 
       } catch (error) {
         console.error('Error fetching action counts:', error.message);
-        // Handle errors if any during API call
       }
     };
 
