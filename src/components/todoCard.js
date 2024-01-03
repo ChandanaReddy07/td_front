@@ -36,7 +36,6 @@ const TaskCard = ({ todo, selectedTask }) => {
       );
 
       if (response.status === 200) {
-        // window.location.href = "/";
         setX(!x)
       } else {
         // Handle error if the API request fails
